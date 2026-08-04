@@ -13,11 +13,12 @@ const buttonVariants = cva(
         icon: "h-10 w-10",
       },
       variant: {
-        primary: "bg-ink text-cream hover:bg-ink/85",
+        primary: "bg-olive-dark text-cream hover:bg-olive-deep",
         secondary: "border border-ink/25 text-ink hover:border-ink hover:bg-ink/[0.03]",
         ghost:
           "h-auto rounded-none px-0 text-sm font-normal normal-case tracking-normal text-ink underline decoration-ink/30 decoration-1 underline-offset-4 hover:decoration-ink",
         inverse: "bg-cream text-ink hover:bg-cream/90",
+        mustard: "bg-oak text-ink hover:bg-oak-dark",
       },
     },
     defaultVariants: {

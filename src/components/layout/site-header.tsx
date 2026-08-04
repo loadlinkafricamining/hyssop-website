@@ -73,7 +73,7 @@ export function SiteHeader() {
             >
               <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.4} />
               {count > 0 ? (
-                <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-oak text-[9px] font-semibold text-cream">
+                <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-oak text-[9px] font-semibold text-ink">
                   {count}
                 </span>
               ) : null}

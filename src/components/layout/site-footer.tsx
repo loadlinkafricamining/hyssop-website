@@ -32,7 +32,7 @@ const FOOTER_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-cream">
+    <footer className="bg-olive-dark text-cream">
       <Container className="grid gap-14 py-24 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-28">
         <div className="flex flex-col gap-5">
           <Logo inverted />

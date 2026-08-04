@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --color-ivory: #f7f5f0;
-  --color-cream: #fbfaf7;
-  --color-beige: #ede6da;
-  --color-travertine: #d9ccbc;
-  --color-stone: #c9b9a6;
-  --color-oak: #b78b5a;
-  --color-oak-dark: #96703f;
-  --color-ink: #171717;
-  --color-ink-soft: #55534c;
-  --color-olive: #677055;
-  --color-olive-dark: #4b5240;
-  --color-sage: #98a48a;
-  --color-border: #e2d9c9;
+  --color-ivory: #f4ede0;
+  --color-cream: #faf7f0;
+  --color-beige: #efe5d3;
+  --color-travertine: #ddd2b8;
+  --color-stone: #ddd2b8;
+  --color-oak: #c99a2e;
+  --color-oak-dark: #a87e22;
+  --color-ink: #201d16;
+  --color-ink-soft: #46422f;
+  --color-olive: #57642f;
+  --color-olive-dark: #3a4222;
+  --color-olive-deep: #2c3319;
+  --color-sage: #8a9a5b;
+  --color-border: #ddd2b8;
 }
 
 @theme inline {
@@ -28,6 +29,7 @@
   --color-ink-soft: var(--color-ink-soft);
   --color-olive: var(--color-olive);
   --color-olive-dark: var(--color-olive-dark);
+  --color-olive-deep: var(--color-olive-deep);
   --color-sage: var(--color-sage);
   --color-border: var(--color-border);
 
