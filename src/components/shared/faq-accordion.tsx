@@ -2,10 +2,10 @@ import { faqs } from "@/content/faqs";
 
 export function FaqAccordion() {
   return (
-    <div className="flex flex-col divide-y divide-border-soft border-y border-border-soft">
+    <div className="flex flex-col divide-y divide-border border-y border-border">
       {faqs.map((faq) => (
-        <details key={faq.question} className="group py-5">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-ink">
+        <details key={faq.question} className="group py-6">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-normal text-ink [&::-webkit-details-marker]:hidden">
             {faq.question}
             <span className="text-xl text-ink-soft transition-transform group-open:rotate-45">
               +

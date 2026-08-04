@@ -6,13 +6,15 @@ import { FaqAccordion } from "@/components/shared/faq-accordion";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Answers to common questions about Hyssop products, orders, and delivery.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {
   return (
-    <div className="py-16 sm:py-20">
-      <Container className="mx-auto flex max-w-2xl flex-col gap-10">
+    <div className="py-20 lg:py-28">
+      <Container size="narrow" className="flex flex-col gap-12">
         <SectionHeading
+          as="h1"
           align="center"
           eyebrow="Support"
           title="Frequently asked questions"

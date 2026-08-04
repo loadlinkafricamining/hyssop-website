@@ -20,7 +20,7 @@ const FEATURES = [
   },
   {
     icon: Recycle,
-    title: "Biodegradable formula",
+    title: "Biodegradable",
     description: "Breaks down naturally, so it's kinder to waterways.",
   },
 ];
@@ -28,7 +28,7 @@ const FEATURES = [
 export function FeatureGrid({
   eyebrow,
   title,
-  className = "py-16 sm:py-20",
+  className = "py-24 lg:py-32",
 }: {
   eyebrow?: string;
   title?: string;
@@ -36,18 +36,23 @@ export function FeatureGrid({
 }) {
   return (
     <section className={className}>
-      <Container className="flex flex-col gap-10">
+      <Container className="flex flex-col gap-16">
         {title ? (
           <SectionHeading align="center" eyebrow={eyebrow} title={title} />
         ) : null}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, title: featureTitle, description }) => (
-            <div key={featureTitle} className="flex flex-col items-start gap-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-olive/30 bg-olive/10 text-olive-dark">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="font-serif text-lg text-ink">{featureTitle}</h3>
-              <p className="text-sm text-ink-soft">{description}</p>
+            <div
+              key={featureTitle}
+              className="flex flex-col items-start gap-4 px-2 py-8 first:pl-0 sm:px-8 sm:first:pl-0"
+            >
+              <Icon className="h-6 w-6 text-olive" strokeWidth={1.25} />
+              <h3 className="font-serif text-lg font-normal text-ink">
+                {featureTitle}
+              </h3>
+              <p className="text-sm leading-relaxed text-ink-soft">
+                {description}
+              </p>
             </div>
           ))}
         </div>

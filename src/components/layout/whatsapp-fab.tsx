@@ -7,10 +7,13 @@ export function WhatsappFab() {
       href={whatsappLink(`Hi ${siteConfig.name}, I'd like to know more about your products.`)}
       target="_blank"
       rel="noreferrer"
-      aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-olive-dark text-cream shadow-lg shadow-ink/20 transition-transform hover:scale-105"
+      aria-label="Chat with Hyssop on WhatsApp"
+      className="fixed bottom-6 right-6 z-30 flex h-12 items-center gap-2 rounded-full bg-ink px-5 text-cream shadow-lg shadow-ink/15 transition-opacity hover:opacity-85"
     >
-      <MessageCircle className="h-6 w-6" />
+      <MessageCircle className="h-4 w-4" strokeWidth={1.4} />
+      <span className="text-[11px] font-medium uppercase tracking-[0.14em]">
+        Chat
+      </span>
     </a>
   );
 }

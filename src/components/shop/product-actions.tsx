@@ -13,7 +13,7 @@ export function ProductActions({ slug }: { slug: string }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
-        <div className="flex items-center rounded-full border border-border-soft">
+        <div className="flex items-center rounded-full border border-border">
           <button
             type="button"
             aria-label="Decrease quantity"

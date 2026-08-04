@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Clean Living, Pure Results",
   footerTagline: "Made with care. Inspired by nature.",
   description:
-    "Hyssop makes biodegradable, plant-powered home care products that are tough on grease and gentle on hands — for households and businesses who want a cleaner clean.",
+    "Hyssop is a home care line built on plant-derived formulas — considered, biodegradable, and made for homes that notice the difference.",
   url: "https://hyssop.example.co.za",
   contact: {
     email: "hello@hyssop.example.co.za",

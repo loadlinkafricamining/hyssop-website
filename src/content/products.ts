@@ -8,6 +8,8 @@ export type Product = {
   tagline: string;
   description: string;
   features: string[];
+  ingredients: string;
+  directions: string[];
   image: string;
   inStock: boolean;
 };
@@ -28,6 +30,14 @@ export const products: Product[] = [
       "Gentle on hands",
       "Clean & safe ingredients",
       "Biodegradable formula",
+    ],
+    // Placeholder — replace with the verified INCI ingredient list before launch.
+    ingredients:
+      "Plant-derived surfactants, biodegradable emulsifiers, natural lemongrass extract, purified water. Full ingredient list to be confirmed.",
+    directions: [
+      "Apply a small amount to a wet sponge or directly onto dishes.",
+      "Work into a lather and clean as usual.",
+      "Rinse thoroughly with water.",
     ],
     image: "/brand/dishwashing-liquid-lemongrass-bottle.png",
     inStock: true,

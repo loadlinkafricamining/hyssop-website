@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronLeft, CheckCircle2 } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Badge } from "@/components/ui/badge";
+import { Accordion } from "@/components/shared/accordion";
 import { ProductActions } from "@/components/shop/product-actions";
+import { ProductGallery } from "@/components/shop/product-gallery";
+import { StickyAddToCart } from "@/components/shop/sticky-add-to-cart";
 import { getProductBySlug, products } from "@/content/products";
 import { formatZAR } from "@/lib/utils";
+import { productJsonLd } from "@/lib/structured-data";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -26,6 +29,12 @@ export async function generateMetadata({
   return {
     title: product.name,
     description: product.tagline,
+    alternates: { canonical: `/shop/${product.slug}` },
+    openGraph: {
+      title: product.name,
+      description: product.tagline,
+      images: [product.image],
+    },
   };
 }
 
@@ -35,57 +44,91 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   return (
-    <div className="py-12 sm:py-16">
-      <Container className="flex flex-col gap-10">
+    <div className="pt-8 pb-24 lg:pt-12 lg:pb-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product)) }}
+      />
+      <Container className="flex flex-col gap-12 lg:gap-16">
         <Link
           href="/shop"
-          className="inline-flex w-fit items-center gap-1 text-sm text-ink-soft transition-colors hover:text-ink"
+          className="inline-flex w-fit items-center gap-1 text-[13px] uppercase tracking-[0.1em] text-ink-soft transition-colors hover:text-ink"
         >
-          <ChevronLeft className="h-4 w-4" /> Back to shop
+          <ChevronLeft className="h-3.5 w-3.5" strokeWidth={1.4} /> Back to shop
         </Link>
 
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] border border-border-soft bg-paper p-12">
-            <Image
-              src={product.image}
-              alt={`${product.name} — ${product.scent}`}
-              fill
-              priority
-              className="object-contain"
-              sizes="(min-width: 1024px) 480px, 90vw"
-            />
-          </div>
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <ProductGallery src={product.image} alt={`${product.name} — ${product.scent}`} />
 
-          <div className="flex flex-col gap-5">
+          <div id="product-info" className="flex flex-col gap-6">
             <Badge>{product.category}</Badge>
-            <h1 className="font-serif text-4xl text-ink">{product.name}</h1>
+            <h1 className="font-serif text-4xl leading-tight font-light text-ink lg:text-5xl">
+              {product.name}
+            </h1>
             <p className="text-lg text-ink-soft">{product.tagline}</p>
-            <div className="flex items-center gap-4 text-sm text-ink-soft">
-              <span>{product.scent} scent</span>
-              <span aria-hidden>·</span>
+            <div className="flex items-center gap-4 text-sm tracking-wide text-ink-soft uppercase">
+              <span>{product.scent}</span>
+              <span aria-hidden className="text-travertine">
+                /
+              </span>
               <span>{product.size}</span>
             </div>
-            <p className="font-serif text-3xl text-ink">
-              {formatZAR(product.priceCents)}
-            </p>
+            <p className="font-serif text-2xl text-ink">{formatZAR(product.priceCents)}</p>
 
             <ProductActions slug={product.slug} />
 
-            <p className="text-ink-soft">{product.description}</p>
+            <p className="max-w-md leading-relaxed text-ink-soft">{product.description}</p>
 
-            <ul className="flex flex-col gap-2 border-t border-border-soft pt-5">
-              {product.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-2 text-sm text-ink"
-                >
-                  <CheckCircle2 className="h-4 w-4 text-olive" /> {feature}
-                </li>
-              ))}
-            </ul>
+            <Accordion
+              className="mt-4"
+              defaultOpenFirst
+              items={[
+                {
+                  title: "Benefits",
+                  content: (
+                    <ul className="flex flex-col gap-1.5">
+                      {product.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  ),
+                },
+                {
+                  title: "Ingredients",
+                  content: <p>{product.ingredients}</p>,
+                },
+                {
+                  title: "Directions",
+                  content: (
+                    <ol className="flex flex-col gap-1.5">
+                      {product.directions.map((step, i) => (
+                        <li key={step}>
+                          {i + 1}. {step}
+                        </li>
+                      ))}
+                    </ol>
+                  ),
+                },
+                {
+                  title: "Shipping & returns",
+                  content: (
+                    <p>
+                      Delivery timelines are confirmed at checkout. Damaged or
+                      incorrect items can be returned within 7 days — see our{" "}
+                      <Link href="/legal/refund-policy" className="underline">
+                        refund policy
+                      </Link>
+                      .
+                    </p>
+                  ),
+                },
+              ]}
+            />
           </div>
         </div>
       </Container>
+
+      <StickyAddToCart product={product} />
     </div>
   );
 }

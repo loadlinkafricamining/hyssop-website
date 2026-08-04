@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function CheckoutCancelledPage() {
   return (
-    <Container className="flex flex-col items-center gap-6 py-24 text-center">
-      <XCircle className="h-12 w-12 text-ink-soft" />
-      <h1 className="font-serif text-3xl text-ink">Your order was cancelled</h1>
+    <Container className="flex flex-col items-center gap-6 py-28 text-center lg:py-36">
+      <XCircle className="h-10 w-10 text-ink-soft" strokeWidth={1.25} />
+      <h1 className="font-serif text-3xl font-light text-ink">Your order was cancelled</h1>
       <p className="max-w-md text-ink-soft">
         No payment was taken. Your cart is still saved if you&apos;d like to
         try again.

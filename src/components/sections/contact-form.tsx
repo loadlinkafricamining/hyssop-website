@@ -64,7 +64,7 @@ export function ContactForm() {
         {isSubmitting ? "Sending…" : "Send message"}
       </Button>
       {status === "sent" ? (
-        <p className="text-sm font-medium text-olive-dark">
+        <p className="text-sm text-olive-dark">
           Thanks — we&apos;ll get back to you soon.
         </p>
       ) : null}

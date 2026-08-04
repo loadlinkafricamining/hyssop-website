@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/shared/legal-page";
 import { siteConfig } from "@/content/site-config";
 
-export const metadata: Metadata = { title: "Refund Policy" };
+export const metadata: Metadata = {
+  title: "Refund Policy",
+  alternates: { canonical: "/legal/refund-policy" },
+};
 
 export default function RefundPolicyPage() {
   return (

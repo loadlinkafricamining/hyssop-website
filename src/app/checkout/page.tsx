@@ -69,10 +69,10 @@ export default function CheckoutPage() {
   if (items.length === 0) return null;
 
   return (
-    <div className="py-16">
+    <div className="py-20 lg:py-24">
       <Container className="grid gap-12 lg:grid-cols-[1fr_360px]">
         <div className="flex flex-col gap-8">
-          <SectionHeading eyebrow="Checkout" title="Your details" />
+          <SectionHeading as="h1" eyebrow="Checkout" title="Your details" />
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
@@ -120,7 +120,7 @@ export default function CheckoutPage() {
             <Button type="submit" size="lg" disabled={submitting} className="mt-2">
               {submitting ? "Processing…" : "Place order"}
             </Button>
-            <p className="text-xs text-ink-soft">
+            <p className="text-xs leading-relaxed text-ink-soft">
               Payments are processed securely via PayFast. If online payment
               isn&apos;t available yet, we&apos;ll confirm your order and
               payment details over WhatsApp.
@@ -128,8 +128,8 @@ export default function CheckoutPage() {
           </form>
         </div>
 
-        <div className="flex h-fit flex-col gap-4 rounded-2xl border border-border-soft bg-paper p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">
+        <div className="flex h-fit flex-col gap-4 border border-border bg-cream p-7">
+          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-soft">
             Order summary
           </p>
           <ul className="flex flex-col gap-3">
@@ -148,7 +148,7 @@ export default function CheckoutPage() {
               );
             })}
           </ul>
-          <div className="flex justify-between border-t border-border-soft pt-4 text-sm font-semibold text-ink">
+          <div className="flex justify-between border-t border-border pt-4 text-sm font-medium text-ink">
             <span>Subtotal</span>
             <span>{formatZAR(subtotalCents)}</span>
           </div>

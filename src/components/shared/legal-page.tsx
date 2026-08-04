@@ -11,9 +11,9 @@ export function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <div className="py-16 sm:py-20">
-      <Container className="mx-auto flex max-w-2xl flex-col gap-8">
-        <SectionHeading title={title} description={`Last updated: ${updated}`} />
+    <div className="py-20 lg:py-28">
+      <Container size="narrow" className="flex flex-col gap-10">
+        <SectionHeading as="h1" title={title} description={`Last updated: ${updated}`} />
         <div className="flex flex-col gap-5 text-sm leading-relaxed text-ink-soft [&_h2]:pt-2 [&_h2]:font-serif [&_h2]:text-xl [&_h2]:text-ink [&_strong]:text-ink">
           {children}
         </div>

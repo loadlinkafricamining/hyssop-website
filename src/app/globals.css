@@ -1,62 +1,104 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f4ede0;
-  --color-cream-soft: #efe5d3;
-  --color-paper: #faf7f0;
-  --color-ink: #201d16;
-  --color-ink-soft: #46422f;
-  --color-olive: #57642f;
-  --color-olive-dark: #3a4222;
-  --color-olive-deep: #2c3319;
-  --color-olive-light: #8a9a5b;
-  --color-mustard: #c99a2e;
-  --color-mustard-dark: #a87e22;
-  --color-border-soft: #ddd2b8;
+  --color-ivory: #f7f5f0;
+  --color-cream: #fbfaf7;
+  --color-beige: #ede6da;
+  --color-travertine: #d9ccbc;
+  --color-stone: #c9b9a6;
+  --color-oak: #b78b5a;
+  --color-oak-dark: #96703f;
+  --color-ink: #171717;
+  --color-ink-soft: #55534c;
+  --color-olive: #677055;
+  --color-olive-dark: #4b5240;
+  --color-sage: #98a48a;
+  --color-border: #e2d9c9;
 }
 
 @theme inline {
+  --color-ivory: var(--color-ivory);
   --color-cream: var(--color-cream);
-  --color-cream-soft: var(--color-cream-soft);
-  --color-paper: var(--color-paper);
+  --color-beige: var(--color-beige);
+  --color-travertine: var(--color-travertine);
+  --color-stone: var(--color-stone);
+  --color-oak: var(--color-oak);
+  --color-oak-dark: var(--color-oak-dark);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
   --color-olive: var(--color-olive);
   --color-olive-dark: var(--color-olive-dark);
-  --color-olive-deep: var(--color-olive-deep);
-  --color-olive-light: var(--color-olive-light);
-  --color-mustard: var(--color-mustard);
-  --color-mustard-dark: var(--color-mustard-dark);
-  --color-border-soft: var(--color-border-soft);
+  --color-sage: var(--color-sage);
+  --color-border: var(--color-border);
 
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-fraunces);
   --font-sans: var(--font-inter);
 
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes fade-up {
     from {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(22px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 body {
-  background: var(--color-cream);
+  background: var(--color-ivory);
   color: var(--color-ink);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .font-serif {
   font-family: var(--font-serif), ui-serif, Georgia, serif;
 }
 
+/* A near-invisible grain, the kind of quiet texture that keeps large warm
+   fields from reading as flat digital color. */
+.texture-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
 ::selection {
   background: var(--color-olive);
-  color: var(--color-paper);
+  color: var(--color-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
