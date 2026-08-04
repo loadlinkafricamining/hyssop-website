@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hyssop
 
-## Getting Started
+Website for Hyssop — biodegradable, plant-powered home care products.
 
-First, run the development server:
+## Stack
+
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · React Hook Form + Zod
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What's here
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Full storefront: Home, Shop, product detail, cart, checkout, About, Contact,
+FAQ, and legal pages, built around a single launch product (Dishwashing
+Liquid — Lemongrass). Cart state is client-side (localStorage), and checkout
+posts to `/api/checkout`.
 
-## Learn More
+Payments and email work without any setup, using an honest fallback: if
+PayFast isn't configured, checkout hands the order off to WhatsApp instead
+of pretending to take a payment. Same idea for the contact form — it just
+skips emailing if Resend isn't configured.
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copy `.env.example` to `.env.local` and fill in real values once you're
+ready to go live:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `PAYFAST_MERCHANT_ID` / `PAYFAST_MERCHANT_KEY` / `PAYFAST_PASSPHRASE` —
+  from your PayFast merchant dashboard. Until these are set, checkout falls
+  back to a WhatsApp handoff.
+- `RESEND_API_KEY` — enables order notification and contact form emails.
+- `NEXT_PUBLIC_SITE_URL` — used to build PayFast return/cancel/notify URLs.
 
-## Deploy on Vercel
+Before accepting real payments, note that `/api/webhooks/payfast` currently
+trusts the incoming ITN payload without verifying PayFast's signature or
+source IP — harden that first (see PayFast's ITN documentation).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Business details live in `src/content/site-config.ts` (contact email,
+phone, WhatsApp number, social links) — these are currently placeholders
+and should be replaced with real details. Products live in
+`src/content/products.ts`.
+
+## Design system
+
+Brand tokens (colors, fonts) live in `src/app/globals.css` under `:root`
+and `@theme inline`. Shared UI primitives are in `src/components/ui`.
