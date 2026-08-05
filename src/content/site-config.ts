@@ -12,7 +12,7 @@ export const siteConfig = {
     address: "South Africa",
   },
   social: {
-    instagram: "https://instagram.com/hyssop",
+    instagram: "https://instagram.com/hyssophomecare",
     facebook: "https://facebook.com/hyssop",
   },
 } as const;
