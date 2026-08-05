@@ -39,7 +39,7 @@ export const products: Product[] = [
       "Work into a lather and clean as usual.",
       "Rinse thoroughly with water.",
     ],
-    image: "/brand/dishwashing-liquid-lemongrass-bottle.png",
+    image: "/brand/dishwashing-liquid-lemongrass-bottle.jpg",
     inStock: true,
   },
 ];

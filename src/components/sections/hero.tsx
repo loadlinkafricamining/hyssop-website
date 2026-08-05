@@ -45,7 +45,7 @@ export function Hero() {
             alt={`${featured.name} — ${featured.scent}`}
             fill
             priority
-            className="object-contain drop-shadow-[0_40px_60px_rgba(23,23,23,0.12)]"
+            className="object-cover"
             sizes="(min-width: 1024px) 42vw, 80vw"
           />
         </div>

@@ -8,7 +8,7 @@ export function ProductGallery({ src, alt }: { src: string; alt: string }) {
         alt={alt}
         fill
         priority
-        className="object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-110"
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         sizes="(min-width: 1024px) 480px, 90vw"
       />
     </div>

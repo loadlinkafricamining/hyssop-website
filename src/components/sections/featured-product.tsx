@@ -18,7 +18,7 @@ export function FeaturedProduct() {
               src={product.image}
               alt={`${product.name} — ${product.scent}`}
               fill
-              className="object-contain"
+              className="object-cover"
               sizes="(min-width: 1024px) 480px, 80vw"
             />
           </div>

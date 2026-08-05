@@ -11,7 +11,7 @@ export function ProductCard({ product }: { product: Product }) {
           src={product.image}
           alt={`${product.name} — ${product.scent}`}
           fill
-          className="object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
         />
       </div>
