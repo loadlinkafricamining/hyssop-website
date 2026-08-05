@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ProductCard } from "@/components/shared/product-card";
+import { RevealGroup, RevealItem } from "@/components/shared/reveal";
 import { products } from "@/content/products";
 
 export const metadata: Metadata = {
@@ -20,11 +21,13 @@ export default function ShopPage() {
           title="Shop Hyssop"
           description="Every product is formulated to work hard on the job and easy on everything else."
         />
-        <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
+            <RevealItem key={product.slug}>
+              <ProductCard product={product} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </Container>
     </div>
   );

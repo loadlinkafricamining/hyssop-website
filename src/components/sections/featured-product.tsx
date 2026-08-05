@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/shared/eyebrow";
 import { buttonVariants } from "@/components/ui/button";
 import { products } from "@/content/products";
 import { formatZAR } from "@/lib/utils";
+import { Reveal } from "@/components/shared/reveal";
 
 export function FeaturedProduct() {
   const product = products[0];
@@ -13,7 +14,7 @@ export function FeaturedProduct() {
     <section className="bg-beige py-24 lg:py-32">
       <Container size="wide">
         <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
+          <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-md">
             <Image
               src={product.image}
               alt={`${product.name} — ${product.scent}`}
@@ -21,9 +22,9 @@ export function FeaturedProduct() {
               className="object-cover"
               sizes="(min-width: 1024px) 480px, 80vw"
             />
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col items-start gap-6">
+          <Reveal delay={0.12} className="flex flex-col items-start gap-6">
             <Eyebrow>Now available</Eyebrow>
             <h2 className="font-serif text-4xl leading-[1.1] font-normal text-ink sm:text-5xl">
               {product.name}
@@ -53,7 +54,7 @@ export function FeaturedProduct() {
                 Shop now
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

@@ -1,6 +1,7 @@
 import { Droplet, Leaf, Recycle, Sparkles } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { RevealGroup, RevealItem } from "@/components/shared/reveal";
 
 const FEATURES = [
   {
@@ -40,9 +41,9 @@ export function FeatureGrid({
         {title ? (
           <SectionHeading align="center" eyebrow={eyebrow} title={title} />
         ) : null}
-        <div className="grid divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <RevealGroup className="grid divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, title: featureTitle, description }) => (
-            <div
+            <RevealItem
               key={featureTitle}
               className="flex flex-col items-start gap-4 px-2 py-8 first:pl-0 sm:px-8 sm:first:pl-0"
             >
@@ -53,9 +54,9 @@ export function FeatureGrid({
               <p className="text-sm leading-relaxed text-ink-soft">
                 {description}
               </p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </Container>
     </section>
   );

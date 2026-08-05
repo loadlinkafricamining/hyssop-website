@@ -4,6 +4,7 @@ import { Eyebrow } from "@/components/shared/eyebrow";
 import { FeatureGrid } from "@/components/sections/feature-grid";
 import { LifestyleInterlude } from "@/components/sections/lifestyle-interlude";
 import { FinalCta } from "@/components/sections/final-cta";
+import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -25,7 +26,7 @@ export default function AboutPage() {
 
       <section className="pb-24 lg:pb-32">
         <Container size="wide">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <Reveal className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             <p className="text-sm tracking-[0.14em] text-ink-soft uppercase">
               Why we started
             </p>
@@ -49,7 +50,7 @@ export default function AboutPage() {
                 before it earns a name.
               </p>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
